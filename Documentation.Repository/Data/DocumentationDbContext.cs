@@ -85,8 +85,8 @@ namespace CarShop.DataAccess.Data
             modelBuilder.Entity<Document>(entity =>
             {
                 entity.HasOne(doc => doc.Status) // az autónak van egy Brand navigation property -je
-                    .WithMany(DocStatus => DocStatus.) // egy márkához tartozik több autó
-                    .HasForeignKey(doc => doc.DocStatusID) // milyen idegen kulcson keresztül kötöttük össze
+                    .WithMany(DocStatus => DocStatus.Documents) // egy márkához tartozik több autó
+                    .HasForeignKey(doc => doc.DocStatus_Id) // milyen idegen kulcson keresztül kötöttük össze
                     .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
